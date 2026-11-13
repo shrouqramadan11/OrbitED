@@ -1,13 +1,27 @@
 import { useState } from "react";
 import "./App.css";
+import Game from "./Game";
+import Mars from "./Mars"; // استدعاء ملف المريخ الجديد
 
 export default function App() {
   const [showHelp, setShowHelp] = useState(false);
   const [showMission, setShowMission] = useState(false);
+  const [currentPage, setCurrentPage] = useState("home");
+  const [selectedPlanet, setSelectedPlanet] = useState("moon"); // لتحديد الكوكب
+
+  // لو الصفحة الحالية هي لعبة
+  if (currentPage === "game") {
+    // لو مبرمجة المريخ يفتح Mars.jsx، ولو القمر يفتح Game.jsx
+    if (selectedPlanet === "mars") {
+      return <Mars goHome={() => setCurrentPage("home")} />;
+    } else {
+      return <Game goHome={() => setCurrentPage("home")} />;
+    }
+  }
 
   return (
-    <main className="landing">      
-      
+    <main className="landing">
+
       {/* Sound */}
       <button className="sound">🔊</button>
 
@@ -26,7 +40,7 @@ export default function App() {
           Your choices. A brighter future.
         </p>
 
-        {/* 3D Robot (Updated to cartoon_robot) */}
+        {/* 3D Robot */}
         <div className="mascot">
 
           <div className="speech">
@@ -59,9 +73,24 @@ export default function App() {
 
           <button
             className="start"
-            onClick={() => setShowMission(true)}
+            onClick={() => {
+              setSelectedPlanet("moon");
+              setShowMission(true);
+            }}
           >
-            🚀 Start Mission <span>›</span>
+            🚀 Start Moon Mission <span>›</span>
+          </button>
+
+          {/* زرار المريخ بيربط بـ Mars.jsx */}
+          <button
+            className="start"
+            style={{ background: "linear-gradient(100deg, #ea580c, #c2410c)", borderColor: "#fb923c" }}
+            onClick={() => {
+              setSelectedPlanet("mars");
+              setShowMission(true);
+            }}
+          >
+            🔴 Start Mars Mission <span>›</span>
           </button>
 
           <button
@@ -106,7 +135,7 @@ export default function App() {
             </div>
 
             <div className="help-item">
-              🏗️ Build your lunar base.
+              🏗️ Build your base.
             </div>
 
             <div className="help-item">
@@ -117,6 +146,7 @@ export default function App() {
               className="start"
               onClick={() => {
                 setShowHelp(false);
+                setSelectedPlanet("moon");
                 setShowMission(true);
               }}
             >
@@ -145,19 +175,22 @@ export default function App() {
               ×
             </button>
 
-            <h2>Mission Briefing 🌕</h2>
+            <h2>Mission Briefing {selectedPlanet === "mars" ? "🔴" : "🌕"}</h2>
 
             <p>
               Welcome Commander!
               Your mission is to build
-              a sustainable lunar base.
+              a sustainable {selectedPlanet === "mars" ? "Mars" : "lunar"} base.
             </p>
 
             <button
               className="start"
-              onClick={() => setShowMission(false)}
+              onClick={() => {
+                setShowMission(false);
+                setCurrentPage("game");
+              }}
             >
-              Ready, Commander!
+              Ready, Commander! 🚀
             </button>
 
           </div>
