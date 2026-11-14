@@ -1,0 +1,243 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.home-page {
+  min-height: 100vh;
+  width: 100%;
+  background: #080c1b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 35px;
+  font-family: 'Inter', sans-serif;
+}
+
+.experiences {
+  width: 100%;
+  max-width: 1055px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 23px;
+}
+
+.experience-card {
+  position: relative;
+  min-height: 519px;
+  padding: 25px;
+  border-radius: 18px;
+  background: linear-gradient(
+    160deg,
+    #151c35 0%,
+    #10172d 65%,
+    #0d1429 100%
+  );
+  border: 1px solid rgba(151, 166, 207, 0.13);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(155, 135, 255, 0.5);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Top section */
+
+.card-top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-number {
+  color: #7d89a8;
+  font-size: 11px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.number-icon {
+  font-size: 16px;
+}
+
+.card-tag {
+  border: 1px solid rgba(151, 116, 255, 0.35);
+  border-radius: 30px;
+  padding: 14px 12px;
+  color: #a18aff;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+
+/* Icon section */
+
+.icon-area {
+  width: 100%;
+  height: 185px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.orbit {
+  position: absolute;
+  width: 175px;
+  height: 75px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  transform: rotate(-27deg);
+  opacity: 0.4;
+}
+
+.icon-box {
+  width: 132px;
+  height: 132px;
+  border-radius: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transform: rotate(-7deg);
+  z-index: 1;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+}
+
+.icon-box svg {
+  transform: rotate(7deg);
+}
+
+.sparkle {
+  position: absolute;
+  top: 28px;
+  right: 12px;
+  color: #a48aff;
+  z-index: 2;
+}
+
+/* Card colors */
+
+.purple {
+  color: #9b80ff;
+}
+
+.purple .icon-box {
+  background: linear-gradient(145deg, #7950d5, #392878);
+}
+
+.blue {
+  color: #54aaff;
+}
+
+.blue .icon-box {
+  background: linear-gradient(145deg, #3698ed, #17458c);
+}
+
+.orange {
+  color: #ff9965;
+}
+
+.orange .icon-box {
+  background: linear-gradient(145deg, #ff9259, #a64e30);
+}
+
+/* Text */
+
+.card-content {
+  width: 100%;
+  text-align: center;
+  margin-top: 4px;
+}
+
+.card-content h2 {
+  color: #ffffff;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 15px;
+}
+
+.card-content h3 {
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 22px;
+}
+
+.purple .card-content h3 {
+  color: #a78bfa;
+}
+
+.blue .card-content h3 {
+  color: #55b4ff;
+}
+
+.orange .card-content h3 {
+  color: #ff9b6c;
+}
+
+.card-content p {
+  color: #929bb4;
+  font-size: 12px;
+  line-height: 1.9;
+  min-height: 48px;
+}
+
+/* Button */
+
+.enter-button {
+  width: 100%;
+  min-height: 49px;
+  margin-top: auto;
+  border: 1px solid rgba(151, 116, 255, 0.4);
+  border-radius: 7px;
+  background: rgba(113, 100, 180, 0.1);
+  color: white;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 13px;
+  font-size: 12px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.enter-button:hover {
+  background: rgba(128, 105, 220, 0.22);
+  border-color: #a18aff;
+}
+
+/* Responsive */
+
+@media (max-width: 850px) {
+  .experiences {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+  }
+
+  .experience-card {
+    min-height: 500px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-page {
+    padding: 25px 15px;
+  }
+}
