@@ -7,8 +7,7 @@ import {
   Sparkles,
 } from "lucide-react";
 
-import "./Home.css";
-
+import "./home.css";
 const experiences = [
   {
     number: "01",
