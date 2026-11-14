@@ -1,4 +1,3 @@
-
 import {
   Hammer,
   Telescope,
@@ -17,14 +16,13 @@ const experiences = [
       "Build your lunar environment and turn your imagination into reality.",
     color: "purple",
     icon: Hammer,
-    link: "build-16nl.vercel.app",
+    link: "https://build-16nl.vercel.app/",
   },
   {
     number: "02",
     title: "DISCOVERY",
     subtitle: "Explore The Unknown",
-    description:
-      "Discover the mysteries of the Moon and explore the unknown.",
+    description: "Discover the mysteries of the Moon and explore the unknown.",
     color: "blue",
     icon: Telescope,
     link: "https://discover-git-main-shrouq-dev.vercel.app/",
@@ -33,8 +31,7 @@ const experiences = [
     number: "03",
     title: "MISSION",
     subtitle: "Solve The Challenges",
-    description:
-      "Complete exciting challenges and prove your skills.",
+    description: "Complete exciting challenges and prove your skills.",
     color: "orange",
     icon: Target,
     link: "https://missions-4qwcmsz0d-shrouq-dev.vercel.app/",
@@ -45,24 +42,18 @@ export default function Home() {
   return (
     <main className="home-page">
       <div className="experiences">
-
         {experiences.map((item) => {
           const Icon = item.icon;
 
           return (
-            <div
-              className={`experience-card ${item.color}`}
-              key={item.title}
-            >
+            <div className={`experience-card ${item.color}`} key={item.title}>
               <div className="card-top">
                 <span className="card-number">
                   <span className="number-icon">◇</span>
                   {item.number}
                 </span>
 
-                <span className="card-tag">
-                  {item.title}
-                </span>
+                <span className="card-tag">{item.title}</span>
               </div>
 
               <div className="icon-area">
@@ -95,7 +86,6 @@ export default function Home() {
             </div>
           );
         })}
-
       </div>
     </main>
   );
